@@ -68,6 +68,34 @@ vim.cmd.colorscheme "prime-night"
 colorscheme prime-night
 ```
 
+## 🎨 Customization
+
+You can easily override any highlight group to tailor the theme to your liking. Place the following code *after* setting the colorscheme.
+
+### Neovim (`init.lua`)
+
+Use `vim.api.nvim_set_hl` to override a highlight group.
+
+```lua
+-- Example: Make comments italic and change their color
+vim.api.nvim_set_hl(0, "Comment", { fg = "#7A88A9", italic = true })
+
+-- Example: Remove the background from Telescope's selection
+vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "none" })
+```
+
+### Vim (`init.vim`)
+
+Use the `highlight` command to override a highlight group.
+
+```vim
+" Example: Make comments italic and change their color
+highlight Comment guifg=#7A88A9 gui=italic
+
+" Example: Remove the background from Telescope's selection
+highlight TelescopeSelection guibg=none
+```
+
 ## 🛠️ Customization & Development
 
 This theme was built using [Lush](https://github.com/rktjmp/lush.nvim). All color definitions and highlight groups are located in `lua/lush_theme/prime-night.lua`.
